@@ -37,10 +37,9 @@ def index():
 def encrypt():
     if request.method == 'POST':
         input = request.form.get('message')
-        if len(sys.argv) == 1:
-            print(request.form.get('message'))
-            print("Message to be encrypted:", input)
-            encrypted_msg, encryption_key = encrypt1(input)
+        print(request.form.get('message'))
+        print("Message to be encrypted:", input)
+        encrypted_msg, encryption_key = encrypt1(input)
 
         return render_template('index.html', outmessage=encrypted_msg.decode('utf-8'), outkey=encryption_key.decode('utf-8'))
     return render_template('index.html')
@@ -50,11 +49,11 @@ def encrypt():
 @app.route('/decrypt', methods=['GET', 'POST'])
 def decrypt():
     if request.method == 'POST':
-        if len(sys.argv) == 1:
-            encoded = request.form.get('encoded')
-            key = request.form.get('key')
-            decrypted_message = decrypt1(encoded, key).decode('utf-8')
-            return render_template('index.html', original=decrypted_message) 
+        encoded = request.form.get('encoded')
+        key = request.form.get('key')
+        decrypted_message = decrypt1(encoded, key).decode('utf-8')
+        return render_template('index.html', original=decrypted_message) 
+    
     return render_template('index.html', original=decrypted_message)
 
 

@@ -15,17 +15,33 @@
             <label for="message">Enter text to be encrypted:</label>
             <input type="text" name="message" id="message">
             <button type="submit">encrypt</button>
-            <p>Encrypted Message: {{ outmessage }}
-                <br>
-                Encryption Key: {{ outkey }}</p>
+            <br>
+            Encrypted Message: <div id="encrypted">{{ outmessage }}
+            </div>
+
+            <button type="button" href="#" onclick="CopyToClipboard('encrypted');return false;">Copy Text</button>
+            <br>
+            
+                Encryption Key: <div id="encryptedkey">{{ outkey }}
+            </div>
+
+                <button type="button" href="#" onclick="CopyToClipboard('encryptedkey');return false;">Copy Key</button>
+
+            
         </form>
+        <br>
         <form action="/decrypt" method="post">
             <label for="encoded">Enter encoded message:</label>
             <input type="text" name="encoded" id="encoded">
+            
             <label for="key">Enter key:</label>
             <input type="text" name="key" id="key">
             <button type="submit">Decrypt</button>
             <p>Original message: {{ original }}</p>
         </form>
+
+        <script src="{{url_for('static', filename='copy.js')}}"></script>
+
+
     </body>
 </html>

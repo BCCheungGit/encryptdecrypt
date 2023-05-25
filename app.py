@@ -18,15 +18,6 @@ def decrypt1(encoded_text, key):
     return decrypted
 
 
-def get_key(message):
-    return encrypt(message)
-
-def timeNow():
-    return str(datetime.datetime.strftime(datetime.datetime.now(), "%H:%M:%S") + "======== ")
-
-
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -55,6 +46,9 @@ def decrypt():
         return render_template('index.html', original=decrypted_message) 
     
     return render_template('index.html', original=decrypted_message)
+
+
+
 
 
 

@@ -1,6 +1,9 @@
 # encryption decryption app
 This program can encrypt and decrypt any message using fernel, a python library.
 
+## Docker
+This project also has a repository on DockerHub, but it is currently private and not for public use.
+
 ## Usage
 1. Create python virtual env
 

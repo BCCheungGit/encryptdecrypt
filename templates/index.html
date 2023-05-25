@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Encryption</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <form action="/encrypt" method="post">
+            <label for="message">Enter text to be encrypted:</label>
+            <input type="text" name="message" id="message">
+            <button type="submit">encrypt</button>
+            <p>Encrypted Message: {{ outmessage }}
+                <br>
+                Encryption Key: {{ outkey }}</p>
+        </form>
+        <form action="/decrypt" method="post">
+            <label for="encoded">Enter encoded message:</label>
+            <input type="text" name="encoded" id="encoded">
+            <label for="key">Enter key:</label>
+            <input type="text" name="key" id="key">
+            <button type="submit">Decrypt</button>
+            <p>Original message: {{ original }}</p>
+        </form>
+    </body>
+</html>

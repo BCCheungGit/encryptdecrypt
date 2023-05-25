@@ -19,6 +19,7 @@ def decrypt1(encoded_text, key):
 
 
 @app.route('/')
+@app.route('/home')
 def index():
     return render_template('index.html')
 
@@ -32,8 +33,8 @@ def encrypt():
         print("Message to be encrypted:", input)
         encrypted_msg, encryption_key = encrypt1(input)
 
-        return render_template('index.html', outmessage=encrypted_msg.decode('utf-8'), outkey=encryption_key.decode('utf-8'))
-    return render_template('index.html')
+        return render_template('encrypt.html', outmessage=encrypted_msg.decode('utf-8'), outkey=encryption_key.decode('utf-8'))
+    return render_template('encrypt.html')
 
 
 
@@ -43,9 +44,9 @@ def decrypt():
         encoded = request.form.get('encoded')
         key = request.form.get('key')
         decrypted_message = decrypt1(encoded, key).decode('utf-8')
-        return render_template('index.html', original=decrypted_message) 
+        return render_template('decrypt.html', original=decrypted_message) 
     
-    return render_template('index.html', original=decrypted_message)
+    return render_template('decrypt.html')
 
 
 

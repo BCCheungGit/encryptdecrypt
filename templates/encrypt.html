@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Encryption{% endblock %}
+ 
+{% block content %}
+ <div class="container">
+        <form action="/encrypt" method="post">
+            <label for="message">Enter text to be encrypted:</label>
+            <input type="text" name="message" id="message">
+            <button class="btn" type="submit" >Encrypt</button>
+            <br>
+            <div class="fullencrypt">
+            Encrypted Message: <div id="encrypted">{{ outmessage }}
+            </div>
+            </div>
+            <button class="btn" type="button" href="#" onclick="CopyToClipboard('encrypted');return false;">Copy Text</button>
+            <br>
+            <div class="fullencrypt">
+                Encryption Key: <div id="encryptedkey">{{ outkey }}
+            </div>
+            </div>
+                <button class="btn" type="button" href="#" onclick="CopyToClipboard('encryptedkey');return false;">Copy Key</button>
+
+        </div> 
+        </form>
+       <script src="{{url_for('static', filename='copy.js')}}"></script>
+
+{% endblock %}

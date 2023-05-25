@@ -1,47 +1,15 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Encryption</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        
-        <form action="/encrypt" method="post">
-            <label for="message">Enter text to be encrypted:</label>
-            <input type="text" name="message" id="message">
-            <button type="submit">encrypt</button>
-            <br>
-            Encrypted Message: <div id="encrypted">{{ outmessage }}
-            </div>
-
-            <button type="button" href="#" onclick="CopyToClipboard('encrypted');return false;">Copy Text</button>
-            <br>
-            
-                Encryption Key: <div id="encryptedkey">{{ outkey }}
-            </div>
-
-                <button type="button" href="#" onclick="CopyToClipboard('encryptedkey');return false;">Copy Key</button>
-
-            
-        </form>
-        <br>
-        <form action="/decrypt" method="post">
-            <label for="encoded">Enter encoded message:</label>
-            <input type="text" name="encoded" id="encoded">
-            
-            <label for="key">Enter key:</label>
-            <input type="text" name="key" id="key">
-            <button type="submit">Decrypt</button>
-            <p>Original message: {{ original }}</p>
-        </form>
-
-        <script src="{{url_for('static', filename='copy.js')}}"></script>
+{% block content %}
+<div align="center">
+    <br>
+    <h2>Welcome to Encryption/Decryption using Python Fernet!</h2>
+    <h3>Use the Navbar to encrypt or decrypt your messages</h3>
+</div>
 
 
-    </body>
-</html>
+
+
+
+{% endblock %}

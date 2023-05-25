@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Decryption{% endblock %}
+
+{% block content %}
+        <div class="container">
+        <form action="/decrypt" method="post">
+            <label for="encoded">Enter encoded message:</label>
+            <input type="text" name="encoded" id="encoded">
+            
+            <label for="key">Enter key:</label>
+            <input type="text" name="key" id="key">
+            <button class="btn" type="submit">Decrypt</button>
+            <p>Original message: {{ original }}</p>
+        </form>
+        </div>
+        <script src="{{url_for('static', filename='copy.js')}}"></script>
+{% endblock %}
